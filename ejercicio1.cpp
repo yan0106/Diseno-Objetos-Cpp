@@ -32,21 +32,22 @@ public:
 
 a) Modificar el constructor de la clase Dispositivo para que pueda recibir los datos necesarios e
 inicializar los atributos.
-b) Implementar los m�todos enviar_datos y recibir_datos para que ambos muestren por pantalla los
+b) Implementar los métodos enviar_datos y recibir_datos para que ambos muestren por pantalla los
 parametros que recibieron.
 c) Implementar el constructor de la clase Paquete
-d) Implementar el m�todo mostrar();
-e) En la funci�n main, declarar los objetos y probarlos.
+d) Implementar el método mostrar();
+e) En la función main, declarar los objetos y probarlos.
 
 OPCIONAL IMPORTANTE
 
-En la funci�n main, declarar:
+En la función main, declarar:
 
 vector<Dispositivo> red;
 
 - utilizarlo como contenedor de dispositivos, y luego, recorrerlo, mostrando los dispositivos que
 componen a esa red.
 */
+
 #include <iostream>
 #include <string>
 #include <vector>
