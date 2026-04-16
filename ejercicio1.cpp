@@ -91,7 +91,7 @@ public: // Métodos:
         mensaje = msje_recibido;
     }
 	void mostrar();
-
+	
 
 };
 
@@ -104,6 +104,10 @@ void Dispositivo::enviar_datos(Paquete p, Dispositivo d){
 
 void Dispositivo::recibir_datos(Paquete p, Dispositivo d){
 	cout << "Accion: Recibiendo datos..." << endl;
+}
+
+void Paquete::mostrar() {
+	
 }
 
 // --- Main ---
