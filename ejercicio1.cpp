@@ -52,61 +52,64 @@ componen a esa red.
 #include <string>
 #include <vector>
 
-class Dispositivo{
+using namespace std;
 
+class Paquete; 
+
+class Dispositivo{ // En las clases de C++, todo lo que está arriba de public: es private por defecto
+	// Atributos:
 	string dir_ip;
 	string nombre;
 	string mascara;
 
-public:
-	Dispositivo(dir_ip, nombre, mascara){
-        dir_ip = " ";
-        nombre = " ";
-        mascara = " ";
+public: // Métodos:
+	// Constructor vacío, por defecto. Para cuando necesito un objeto "en blanco"
+	Dispositivo() {}
+	// Constructor con parámetros: el constructor tiene que "mapear" lo que viene de afuera hacia adentro
+	Dispositivo(string ip_recibida, string nombre_recibido, string mascara_recibida){
+        dir_ip = ip_recibida;
+        nombre = nombre_recibido;
+        mascara = mascara_recibida;
         cout << "Dispositivo inicializado" << endl;
     }
-	void enviar_datos(Paquete, Dispositivo);
-	void recibir_datos(Paquete, Dispositivo);
+	void enviar_datos(Paquete p, Dispositivo d);
+	void recibir_datos(Paquete p, Dispositivo d);
 
 };
 
-void enviar_datos(Paquete, Dispositivo) {
-    cout << Dispositivo << " " << Paquete << endl;
-}
-
-void recibir_datos(Paquete, Dispositivo){
-    cout << Paquete << " " << Dispositivo << endl;
-}
-
 class Paquete{
-
+	// Atributos:
 	Dispositivo origen;
 	Dispositivo destino;
 	string mensaje;
 
-public:
-
-	Paquete(Dispositivo, Dispositivo, string mensaje) {
-        // Dispositivo
-        // Dispositivo
-        mensaje = " ";
+public: // Métodos:
+	// Mapeo en el Constructor, los parámetros con los atributos
+	Paquete(Dispositivo ori_recibido, Dispositivo dest_recibido, string msje_recibido) {
+        origen = ori_recibido;
+		destino = dest_recibido;
+        mensaje = msje_recibido;
     }
 	void mostrar();
 
 
+};
+
+// Implementación de los Métodos:
+
+void Dispositivo::enviar_datos(Paquete p, Dispositivo d){
+	// El "Cómo" sucede acá
+    cout << "Accion: Enviando datos..." << endl;
 }
 
-using namespace std;
+void Dispositivo::recibir_datos(Paquete p, Dispositivo d){
+	cout << "Accion: Recibiendo datos..." << endl;
+}
+
+// --- Main ---
 
 int main () {
 
-Dispositivo A;
-
-vector <Dispositivo> red;
-
-for (int i = 0; i < Dispositivo.size(); i++) {
-    cout << Dispositivo[i] << endl;
-}
-
+	
 return 0;
 }
