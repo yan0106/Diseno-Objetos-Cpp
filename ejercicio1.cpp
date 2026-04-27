@@ -38,7 +38,7 @@ c) Implementar el constructor de la clase Paquete
 d) Implementar el método mostrar();
 e) En la función main, declarar los objetos y probarlos.
 
-OPCIONAL IMPORTANTE
+OPCIONAL IMPORTANTE:
 
 En la función main, declarar:
 
@@ -74,6 +74,7 @@ public: // Métodos:
     }
 	void enviar_datos(Paquete p, Dispositivo d);
 	void recibir_datos(Paquete p, Dispositivo d);
+	
 	string getNombre(){ // método para obtener el nombre del Dispositivo
 		return nombre;
 	}
@@ -93,9 +94,11 @@ public: // Métodos:
 		destino = dest_recibido;
         mensaje = msje_recibido;
     }
+	
 	string getMensaje(){ // método para obtener el mensaje
 		return mensaje;
 	}
+	
 	void mostrar();
 };
 
@@ -106,7 +109,7 @@ void Dispositivo::enviar_datos(Paquete p, Dispositivo d){
 }
 
 void Dispositivo::recibir_datos(Paquete p, Dispositivo d){
-	cout << "Recibiendo: " << p.getMensaje () << "de: " << d.getNombre() << endl;
+	cout << "Recibiendo: " << p.getMensaje () << " de: " << d.getNombre() << endl;
 }
 
 void Paquete::mostrar() {
@@ -122,6 +125,17 @@ void Paquete::mostrar() {
 
 int main () {
 
-	
+	Dispositivo SP ("192.168.1.1", "Servidor Poli", "255.255.0.1");
+	Dispositivo PCYan ("203.128.0.2", "PC Yan", "255.255.0.3");
+
+	Paquete Paq1 (SP, PCYan, "La base de datos fue modificada");
+
+	SP.enviar_datos(Paq1, PCYan);
+	SP.recibir_datos(Paq1, SP);
+
+	Paq1.mostrar();
+
+	vector<Dispositivo> red;
+
 return 0;
 }
