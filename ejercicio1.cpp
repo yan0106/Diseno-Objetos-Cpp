@@ -64,7 +64,7 @@ class Dispositivo{ // En las clases de C++, todo lo que está arriba de public: 
 
 public: // Métodos:
 	// Constructor vacío, por defecto. Para cuando necesito un objeto "en blanco"
-	Dispositivo() {}
+	Dispositivo(){};
 	// Constructor con parámetros: el constructor tiene que "mapear" lo que viene de afuera hacia adentro
 	Dispositivo(string ip_recibida, string nombre_recibido, string mascara_recibida){
         dir_ip = ip_recibida;
@@ -74,6 +74,9 @@ public: // Métodos:
     }
 	void enviar_datos(Paquete p, Dispositivo d);
 	void recibir_datos(Paquete p, Dispositivo d);
+	string getNombre(){ // método para obtener el nombre del Dispositivo
+		return nombre;
+	}
 
 };
 
@@ -84,12 +87,16 @@ class Paquete{
 	string mensaje;
 
 public: // Métodos:
+	Paquete (){};
 	// Mapeo en el Constructor, los parámetros con los atributos
 	Paquete(Dispositivo ori_recibido, Dispositivo dest_recibido, string msje_recibido) {
         origen = ori_recibido;
 		destino = dest_recibido;
         mensaje = msje_recibido;
     }
+	string getMensaje(){ // método para obtener el mensaje
+		return mensaje;
+	}
 	void mostrar();
 	
 
@@ -98,12 +105,11 @@ public: // Métodos:
 // Implementación de los Métodos:
 
 void Dispositivo::enviar_datos(Paquete p, Dispositivo d){
-	// El "Cómo" sucede acá
-    cout << "Accion: Enviando datos..." << endl;
+	cout << "Enviando: " << p.getMensaje() << " para: " << d.getNombre() << endl;
 }
 
 void Dispositivo::recibir_datos(Paquete p, Dispositivo d){
-	cout << "Accion: Recibiendo datos..." << endl;
+	cout << "Recibiendo: " << p.getMensaje () << "de: " << d.getNombre() << endl;
 }
 
 void Paquete::mostrar() {
