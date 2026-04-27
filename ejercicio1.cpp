@@ -135,7 +135,18 @@ int main () {
 
 	Paq1.mostrar();
 
+	// Opcional vector:
 	vector<Dispositivo> red;
+	red.push_back(SP);
+	red.push_back(PCYan);
+
+	// consulta el tamaño del vector:
+	cout << red.size() << endl;
+
+	// recorre el vector:
+	for (int i=0; i<red.size(); i++) {
+		cout << red[i].getNombre() << endl;
+	}
 
 return 0;
 }
