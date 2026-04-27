@@ -77,7 +77,6 @@ public: // Métodos:
 	string getNombre(){ // método para obtener el nombre del Dispositivo
 		return nombre;
 	}
-
 };
 
 class Paquete{
@@ -98,8 +97,6 @@ public: // Métodos:
 		return mensaje;
 	}
 	void mostrar();
-	
-
 };
 
 // Implementación de los Métodos:
@@ -113,7 +110,12 @@ void Dispositivo::recibir_datos(Paquete p, Dispositivo d){
 }
 
 void Paquete::mostrar() {
-	
+	cout << "--- INFO DEL PAQUETE ---" << endl;
+    cout << "Contenido: " << mensaje << endl; 
+    // como origen es un Dispositivo, usamos el getter:
+    cout << "Desde: " << origen.getNombre() << endl;
+    cout << "Hacia: " << destino.getNombre() << endl;
+    cout << "------------------------" << endl;	
 }
 
 // --- Main ---
