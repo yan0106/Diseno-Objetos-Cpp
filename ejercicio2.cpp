@@ -40,6 +40,7 @@ public:
 };
 
 class Semaforo {
+	string nombre;
 	Luz luz_roja;
 	Luz luz_amarilla;
 	Luz luz_verde;
@@ -48,11 +49,13 @@ class Semaforo {
 
 public:
     // : lista de inicialización en el constructor semáforo
- 	Semaforo(): luz_roja("Rojo", true),
+ 	Semaforo(string nombre_recibido): luz_roja("Rojo", true),
 				luz_amarilla("Amarillo", false),
 				luz_verde("Verde", false),
-				estado_actual(Est_Rojo){}; 
+				estado_actual(Est_Rojo),
+				nombre(nombre_recibido){};
 	void cambiar_estado();
+	void mostrar_estado();
 
 };
 
@@ -99,4 +102,24 @@ void Semaforo::cambiar_estado(){
 		estado_actual = Est_Rojo;
         break;
 	}
+}
+
+void Semaforo::mostrar_estado() {
+	cout << "Semáforo: " << nombre << endl;
+	cout << "Rojo: " << (luz_roja.esta_encendida() ? "ENCENDIDO" : "---") << " | ";
+	cout << "Amarillo: " << (luz_amarilla.esta_encendida() ? "ENCENDIDO" : "---") << " | ";
+	cout << "Verde: " << (luz_verde.esta_encendida() ? "ENCENDIDO" : "---") << endl;
+    cout << "------------------------------------------------" << endl; 
+}
+// "Semáforo [Nombre]: Roja [ON/OFF] | Amarilla [ON/OFF] | Verde [ON/OFF]".
+
+// --- Main ---
+
+int main () {
+
+
+
+
+
+return 0;	
 }
