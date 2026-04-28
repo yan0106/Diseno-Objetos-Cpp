@@ -30,13 +30,13 @@ class Luz {
 	bool onoff;
 
 public:
-	Luz(string col, bool onoff_recibido){ 
-		color = col;
+	Luz(string color_recibido, bool onoff_recibido){ 
+		color = color_recibido;
 		onoff = onoff_recibido;
 	};
 	void encender();
 	void apagar();
-	bool esta_encendida(){return onoff;};
+	bool esta_encendida(){return onoff;}; // getter, para que el semáforo sepa qué está pasando con sus luces
 };
 
 class Semaforo {
@@ -44,9 +44,14 @@ class Semaforo {
 	Luz luz_amarilla;
 	Luz luz_verde;
 	enum estado {Est_Rojo, Est_Rojo_Amarillo, Est_Verde, Est_Verde_Amarillo};
+	estado estado_actual; // este atributo, guarda uno de los estados declarados arriba
 
 public:
-	Semaforo();
+    // : lista de inicialización en el contructor semáforo
+ 	Semaforo(): luz_roja("Rojo", true),
+				luz_amarilla("Amarillo", false),
+				luz_verde("Verde", false),
+				estado_actual(Est_Rojo){}; 
 	void cambiar_estado();
 
 };
