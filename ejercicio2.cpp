@@ -47,7 +47,7 @@ class Semaforo {
 	estado estado_actual; // este atributo, guarda uno de los estados declarados arriba
 
 public:
-    // : lista de inicialización en el contructor semáforo
+    // : lista de inicialización en el constructor semáforo
  	Semaforo(): luz_roja("Rojo", true),
 				luz_amarilla("Amarillo", false),
 				luz_verde("Verde", false),
@@ -56,4 +56,13 @@ public:
 
 };
 
+// -- Implementación de los Métodos --
+
+void Luz::encender(){
+	onoff = true;
+}
+
+void Luz::apagar(){
+	onoff = false;
+}
 
