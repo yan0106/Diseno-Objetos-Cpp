@@ -66,3 +66,37 @@ void Luz::apagar(){
 	onoff = false;
 }
 
+void Semaforo::cambiar_estado(){
+	switch (estado_actual) {
+    case Est_Rojo:
+		luz_amarilla.encender();
+        estado_actual = Est_Rojo_Amarillo;
+        break; // para que no siga de largo al siguiente caso
+
+    case Est_Rojo_Amarillo:
+        luz_roja.apagar();
+		luz_amarilla.apagar();
+		luz_verde.encender();
+		estado_actual = Est_Verde;
+        break;
+	
+	case Est_Verde:
+		luz_amarilla.encender();
+		estado_actual = Est_Verde_Amarillo;
+		break;
+
+	case Est_Verde_Amarillo:
+		luz_verde.apagar();
+		luz_amarilla.apagar();
+		luz_roja.encender();
+		estado_actual = Est_Rojo;
+		break;
+
+    default:
+        luz_roja.encender();
+		luz_verde.apagar();
+		luz_amarilla.apagar();
+		estado_actual = Est_Rojo;
+        break;
+	}
+}
