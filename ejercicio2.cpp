@@ -5,7 +5,7 @@ pueden estar de a dos en el mismo estado, o sea, rojo/amarillo, o verde/amarillo
 para la transición entre el rojo y verde.
 En cada esquina hay dos semáforos, en determinado lapso de tiempo, ambos cambiaran de estado pero siempre
 en contraposición, ejemplo:
-Semaforo 				Semaforo B
+  Semaforo A 			  Semaforo B
 
 	Rojo					Verde
 	Rojo 					Verde/amarillo
@@ -17,3 +17,38 @@ cada uno.
 Obviamente, no habrá una función timer autónoma, simplemente alcanzará con un método cambiar_estado, que
 cada vez que se ejecute establezca a los semaforos en los estados arriba expuestos.
 */
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Luz {
+
+	string color;
+	bool onoff;
+
+public:
+	Luz(string col, bool onoff_recibido){ 
+		color = col;
+		onoff = onoff_recibido;
+	};
+	void encender();
+	void apagar();
+	bool esta_encendida(){return onoff;};
+};
+
+class Semaforo {
+	Luz luz_roja;
+	Luz luz_amarilla;
+	Luz luz_verde;
+	enum estado {Est_Rojo, Est_Rojo_Amarillo, Est_Verde, Est_Verde_Amarillo};
+
+public:
+	Semaforo();
+	void cambiar_estado();
+
+};
+
+
