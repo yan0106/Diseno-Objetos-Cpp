@@ -67,3 +67,15 @@ int main (){
 }
 
 ///~
+
+/* EJERCICIO:
+
+Teniendo en cuenta los ejemplos de los archivos
+entrada.cpp y salida.cpp realice:
+
+- En el archivo entrada.cpp sobrecargue los operadores de salida para poder mostrar correctamente 
+al objeto creado.
+- En el archivo salida.cpp sobrecargue los operadores de entrada, sobrecargue los constructores para que
+no reciban parámetros de entrada y poder usar los objetos en forma directa en cin.
+
+*/
