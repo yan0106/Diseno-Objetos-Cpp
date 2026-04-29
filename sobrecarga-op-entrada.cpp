@@ -58,7 +58,7 @@ istream& operator>>(istream& is, Tipo& t){
 }
 
 istream& operator>>(istream& is, Impresora& i){
-    cout<< "Ingresará los datos de la impresora:" << endl;
+    cout<< "Ingresara los datos de la impresora:" << endl;
     cout<< "Ingrese la marca: ";
     is >> i.marca;
     cout<< "Ingrese el modelo: ";
@@ -70,7 +70,7 @@ istream& operator>>(istream& is, Impresora& i){
 
 ostream& operator<<(ostream& os, Tipo& t) {
     os << "Tipo: " << t.get_tipo() << endl; 
-    os << "color: " << t.get_color() << endl;
+    os << "Color: " << t.get_color() << endl;
     // os para que el objeto se pueda mostrar en cualquier lado, no solo en la pantalla
 
     return os;
@@ -81,7 +81,7 @@ ostream& operator<<(ostream& os, Impresora& i) {
     os << "Marca: " << i.get_marca() << endl;
     os << "Modelo: " << i.get_modelo() << endl;
 
-    os << "Tipo: " << i.tipo << endl; // i.tipo para saltarme la restricción de la referencia con el objeto temporal
+    os << i.tipo << endl; // i.tipo para saltarme la restricción de la referencia con el objeto temporal
 
     return os;
 }
