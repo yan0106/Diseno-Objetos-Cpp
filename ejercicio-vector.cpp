@@ -22,7 +22,8 @@ class nodo{
 public: 
     nodo(){sig=NULL;} 
 	void set_nodo(vec4); 
-	void set_sig(nodo a); bool 	si_esta(vec4); 
-	void mostrar(); 
+	void set_sig(nodo a); 
+    bool si_esta(vec4); 
+	void mostrar();
 };
 */
