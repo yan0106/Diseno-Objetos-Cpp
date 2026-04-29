@@ -14,14 +14,15 @@ public:
 
     string get_tipo(){return tipo;}
     string get_color(){return color;}
-    friend istream& operator>>(istream&, Tipo&);
-    // friend -> para darle permiso especial a la función para que pueda acceder a los atributos.
-    // istream, se refiere a un "flujo de entrada" (input stream), como es el caso de cin.
-    // el símbolo & significa que lo pasamos por referencia e usa para que los datos se guarden 
+    friend istream& operator>>(istream&, Tipo&); // sobrecarga del op de entrada
+    // friend: para darle permiso especial a la función para que pueda acceder a los atributos.
+    // istream: se refiere a un "flujo de entrada" (input stream), como es el caso de cin.
+    // el símbolo &: significa que lo pasamos por referencia se usa para que los datos se guarden 
     // directamente en el objeto original y no en una copia, que se borre al terminar la función
-    // operator>>, es el nombre la función:
-    // Quiero definir qué tiene que pasar cuando use el símbolo >> con este objeto
-    // el primer parámetro es un istream& porque cin es un istream (clase de C++)
+    // operator>>: es el nombre la función:
+    // quiero definir qué tiene que pasar cuando use el símbolo >> con este objeto
+    // el primer parámetro es un istream&, porque cin es un istream (clase de C++)
+    friend ostream& operator<<(ostream&, Tipo&); // sobrecarga del op de salida
 };
 
 class Impresora{
@@ -35,7 +36,11 @@ public:
     string get_modelo(){return modelo;}
     Tipo get_tipo(){return tipo;}
 
-    friend istream& operator>>(istream&, Impresora&);
+    friend istream& operator>>(istream&, Impresora&); // sobrecarga del op de entrada
+    friend ostream& operator<<(ostream&, Impresora&); // sobrecarga del op de salida
+    // friend: permiso para acceder a marca, modelo y tipo (privados).
+    // ostream&: flujo de salida por referencia (el "caño" por donde sale la info, ej. cout).
+    // Impresora&: el objeto que queremos mostrar (pasado por referencia para no copiarlo).
 
 };
 
