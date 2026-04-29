@@ -93,8 +93,11 @@ int main (){
     Impresora I;
     cin >> I;
 
-    cout << "la impresora ingresada es: " << endl;
-    cout << I.get_marca();
+    cout << I;
+    // C++ detecta que quiero enviar un objeto "I" de tipo Impresora al flujo cout.
+    // se dispara la función ostream& operator<<(ostream& os, Impresora& i), que imprime la marca y el modelo.
+    // cdo esa función llega a la línea os << i.tipo;, se dispara automáticamente la sobrecarga que escribí
+    // para la clase Tipo.
 
     return 0;
 }
