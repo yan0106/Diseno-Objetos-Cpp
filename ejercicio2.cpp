@@ -105,11 +105,12 @@ void Semaforo::cambiar_estado(){
 }
 
 void Semaforo::mostrar_estado() {
-	cout << "Semáforo: " << nombre << endl;
+	cout << "Semaforo: " << nombre << endl;
 	cout << "Rojo: " << (luz_roja.esta_encendida() ? "ENCENDIDO" : "---") << " | ";
 	cout << "Amarillo: " << (luz_amarilla.esta_encendida() ? "ENCENDIDO" : "---") << " | ";
 	cout << "Verde: " << (luz_verde.esta_encendida() ? "ENCENDIDO" : "---") << endl;
-    cout << "------------------------------------------------" << endl; 
+    cout << "------------------------------------------------" << endl;
+	cout << endl; 
 }
 // "Semáforo [Nombre]: Roja [ON/OFF] | Amarilla [ON/OFF] | Verde [ON/OFF]".
 
@@ -117,9 +118,29 @@ void Semaforo::mostrar_estado() {
 
 int main () {
 
+	Semaforo semA ("A");
+	Semaforo semB ("B");
 
+	semA.mostrar_estado(); // Rojo inicial
+	semB.mostrar_estado(); // Rojo inicial
 
+	semB.cambiar_estado(); // para salir de Rojo inicial y pasar al Rojo/Amarillo
+	semB.mostrar_estado();
+	semB.cambiar_estado(); // para salir de Rojo/Amarillo y pasar a Verde
+	semB.mostrar_estado();
 
+	// ... después de los dos cambios de semB ...
+	cout << "=== ESTADO DE LA ESQUINA SINCRONIZADA ===" << endl;
+	semA.mostrar_estado();
+	semB.mostrar_estado();
+
+	cout << "--- INICIANDO SIMULACION DE CICLO ---" << endl;
+	for(int i = 0; i < 4; i++){
+    	semA.cambiar_estado();
+    	semB.cambiar_estado();
+    	semA.mostrar_estado();
+    	semB.mostrar_estado();
+	}
 
 return 0;	
-}
+} 
