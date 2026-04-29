@@ -44,6 +44,8 @@ public:
 
 };
 
+//--- Métodos: ---
+
 istream& operator>>(istream& is, Tipo& t){
     cout << "Ingrese el tipo de impresora: laser/tinta ";
     is >> t.tipo;
@@ -65,6 +67,26 @@ istream& operator>>(istream& is, Impresora& i){
 
     return is;
 }
+
+ostream& operator<<(ostream& os, Tipo& t) {
+    os << "Tipo: " << t.get_tipo() << endl; 
+    os << "color: " << t.get_color() << endl;
+    // os para que el objeto se pueda mostrar en cualquier lado, no solo en la pantalla
+
+    return os;
+}
+
+ostream& operator<<(ostream& os, Impresora& i) {
+    os << "DATOS DE LA IMPRESORA: " << endl;
+    os << "Marca: " << i.get_marca() << endl;
+    os << "Modelo: " << i.get_modelo() << endl;
+
+    os << "Tipo: " << i.tipo << endl; // i.tipo para saltarme la restricción de la referencia con el objeto temporal
+
+    return os;
+}
+
+// --- Main ---
 
 int main (){
 
