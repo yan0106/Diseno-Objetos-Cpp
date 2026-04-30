@@ -34,3 +34,37 @@ int main (){
 
 */
 
+#include <iostream>
+
+using namespace std;
+
+class Punto {
+
+    // Atributos:
+    int cord_x;
+    int cord_y;
+
+    // Métodos:
+public:
+    Punto(){};
+    bool set_p(int, int);
+    void print_p();
+    bool valida_p(int);
+
+};
+
+class Rectangulo {
+
+    // Atributos
+    Punto tope_iz;
+    Punto inf_der;
+
+    // Métodos
+public: 
+    Rectangulo (int, int, int, int){};
+    void print_r();
+
+};
+
+// --- Implementación de los Métodos ---
+
