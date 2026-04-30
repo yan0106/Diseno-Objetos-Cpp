@@ -83,7 +83,7 @@ bool Punto::set_p(int x, int y) {
     if (valida_p(x) && valida_p(y)) {
         cord_x = x;
         cord_y = y;
-        return true
+        return true;
     } else { 
         cout << "Coordenadas inválidas" << endl;
         return false;
@@ -91,6 +91,15 @@ bool Punto::set_p(int x, int y) {
 };
 
 void Punto::print_p() {
-    cout << "Las coordenadas ingresadas son: " <<"(" << cord_x <<", " << cord_y << ")" << endl;
+    cout <<"(" << cord_x <<", " << cord_y << ")" << endl;
 };
 
+void Rectangulo::print_r(){
+    cout << "El rectangulo tiene los siguientes puntos: " << endl;
+    
+    cout << "Tope Izquierdo: ";
+    tope_iz.print_p(); // esta f ya tiene su propio cout y su endl
+    
+    cout << "Inferior Derecho: ";
+    inf_der.print_p(); // esta también
+};
