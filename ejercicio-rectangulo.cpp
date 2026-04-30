@@ -104,6 +104,8 @@ void Rectangulo::print_r(){
     inf_der.print_p(); // esta también
 };
 
+// --- Main ---
+
 int main (){
     
     Rectangulo R(5, 4, 9, 2);
