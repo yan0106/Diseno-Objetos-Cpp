@@ -103,3 +103,12 @@ void Rectangulo::print_r(){
     cout << "Inferior Derecho: ";
     inf_der.print_p(); // esta también
 };
+
+int main (){
+    
+    Rectangulo R(5, 4, 9, 2);
+    
+    R.print_r();
+
+return 0;
+};
