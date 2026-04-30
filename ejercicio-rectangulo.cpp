@@ -62,15 +62,8 @@ class Rectangulo {
     // Métodos
 public: 
     Rectangulo(int x, int y, int z, int w){
-        if (x > 0 && y > 0){
-            tope_iz.set_p(x, y);
-        }
-        if (z > 0 && w > 0) {
-            inf_der.set_p(z, w);
-        }
-        else {
-            cout << "Coordenada inválida" << endl;
-        }
+        tope_iz.set_p(x, y);
+        inf_der.set_p(z, w);
     };
     void print_r();
 
@@ -100,3 +93,4 @@ bool Punto::set_p(int x, int y) {
 void Punto::print_p() {
     cout << "Las coordenadas ingresadas son: " <<"(" << cord_x <<", " << cord_y << ")" << endl;
 };
+
