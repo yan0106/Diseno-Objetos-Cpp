@@ -61,10 +61,42 @@ class Rectangulo {
 
     // Métodos
 public: 
-    Rectangulo (int, int, int, int){};
+    Rectangulo(int x, int y, int z, int w){
+        if (x > 0 && y > 0){
+            tope_iz.set_p(x, y);
+        }
+        if (z > 0 && w > 0) {
+            inf_der.set_p(z, w);
+        }
+        else {
+            cout << "Coordenada inválida" << endl;
+        }
+    };
     void print_r();
 
 };
 
 // --- Implementación de los Métodos ---
 
+bool Punto::valida_p(int x) {
+    if (x > 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+bool Punto::set_p(int x, int y) {
+    if (valida_p(x) && valida_p(y)) {
+        cord_x = x;
+        cord_y = y;
+        return true
+    } else { 
+        cout << "Coordenadas inválidas" << endl;
+        return false;
+    }
+};
+
+void Punto::print_p() {
+    cout << "Las coordenadas ingresadas son: " <<"(" << cord_x <<", " << cord_y << ")" << endl;
+};
