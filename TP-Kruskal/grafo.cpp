@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
-#include<utility>
+#include<utility> // para usar pair
+#include <map> // para la estructura COMBINA-ENCUENTRA (clave-valor)
+#include <queue> // para cola de prioridad (el árbol)
 using namespace std;
 
 /*
