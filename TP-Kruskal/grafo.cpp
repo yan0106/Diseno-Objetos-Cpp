@@ -1,9 +1,18 @@
 #include<iostream>
 #include<vector>
 #include<utility> // para usar pair
-#include <map> // para la estructura COMBINA-ENCUENTRA (clave-valor)
-#include <queue> // para cola de prioridad (el árbol)
+#include <map> // para la estructura Combina-Encuentra (asociar clave-valor)
+#include <queue> // para la cola de prioridad (el árbol)
 using namespace std;
+
+// Estructura Arista
+typedef pair<pair<char, char>, int> arista; // v1, v2 y costo entre ellos;
+
+// Estructura Combina-Encuentra
+typedef struct combina_encuentra {
+	map <char, pair<char, char>> nombres; // vértice y vértice sig.;
+	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento;
+}conjunto_CE;
 
 /*
 Sea un grafo G = (V, E)
@@ -11,7 +20,7 @@ Sea un grafo G = (V, E)
 class grafo{
 	
 	vector<char> V;
-	vector<pair<pair<char, char>, int>> E;
+	vector<arista> E;
 public:
 	grafo(){}
 	~grafo(){}
