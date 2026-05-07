@@ -1,8 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<utility> // para usar pair
-#include <map> // para la estructura Combina-Encuentra (asociar clave-valor)
-#include <queue> // para la cola de prioridad (el árbol)
+#include<map> // para la estructura Combina-Encuentra (asociar clave-valor)
+#include<queue> // para la cola de prioridad (el árbol)
 using namespace std;
 
 // Estructura Arista
@@ -13,6 +13,19 @@ typedef struct combina_encuentra {
 	map <char, pair<char, char>> nombres; // vértice y vértice sig.
 	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento
 }conjunto_CE;
+
+// Clase MenorValor
+class MenorValor { // se genera una nueva clase para generar un nuevo criterio de comparación y que no sea por defecto
+	public:
+		// sobrecarga del operador () para comparar los pesos de las aristas
+    	// retorna true si el peso de e1 es mayor al de e2 (para ordenar de menor a mayor)
+		bool operator() (arista e1, arista e2) { // functor (objeto que se comporta como una función)
+			return e1.second > e2.second;
+		}
+};
+
+// Estructura Arbol (cola de prioridad de aristas)
+typedef priority_queue<arista, vector<arista>, MenorValor> arbol;
 
 /*
 Sea un grafo G = (V, E)
@@ -31,6 +44,14 @@ public:
 
 	void insertar_vertice(const char&); // guarda los vértices en el conjunto V
 	void insertar_arista(const char&, const char&, const int&); // guarda las aristas en el conjunto E
+	
+	// Nuevos métodos:
+	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
+	void inicial(const char&, const char&); // inicializa a las estructuras de conjunto Combina-Encuentra
+	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
+	char encuentra(const char&); // encuentra los vértices dentro del conjunto Combina-Encuentra
+	void kruskal(); // algoritmo generador del árbol recubridor minimal
+	void inserta(); // guarda al conjunto E dentro de la cola de prioridad teniendo en cuenta los costos
 
 	friend ostream& operator <<(ostream&, grafo);
 };
