@@ -6,12 +6,12 @@
 using namespace std;
 
 // Estructura Arista
-typedef pair<pair<char, char>, int> arista; // v1, v2 y costo entre ellos;
+typedef pair<pair<char, char>, int> arista; // v1, v2 y costo entre ellos
 
 // Estructura Combina-Encuentra
 typedef struct combina_encuentra {
-	map <char, pair<char, char>> nombres; // vértice y vértice sig.;
-	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento;
+	map <char, pair<char, char>> nombres; // vértice y vértice sig.
+	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento
 }conjunto_CE;
 
 /*
@@ -21,16 +21,16 @@ class grafo{
 	
 	vector<char> V;
 	vector<arista> E;
-	conjunto_CE CE; // estructura para evitar ciclos;
-	arbol grafo_ordenado; // cola de prioridad con los pesos de las aristas;
+	conjunto_CE CE; // estructura para evitar ciclos
+	arbol grafo_ordenado; // cola de prioridad con los pesos de las aristas
 	vector<arista> arbol_minimo; // donde guardo las aristas (de menor costo) del resultado final
 
 public:
-	grafo(){}
-	~grafo(){}
+	grafo(){} // constructor
+	~grafo(){} // destructor
 
-	void insertar_vertice(const char&);
-	void insertar_arista(const char&, const char&, const int&);
+	void insertar_vertice(const char&); // guarda los vértices en el conjunto V
+	void insertar_arista(const char&, const char&, const int&); // guarda las aristas en el conjunto E
 
 	friend ostream& operator <<(ostream&, grafo);
 };
@@ -39,8 +39,7 @@ void grafo::insertar_vertice(const char& vertice){
 	V.push_back(vertice);
 }
 
-void grafo::insertar_arista(const char& vertice1, const char& vertice2, const int& costo){
-	
+void grafo::insertar_arista(const char& vertice1, const char& vertice2, const int& costo){	
 	E.push_back(make_pair(make_pair(vertice1, vertice2), costo));
 }
 
