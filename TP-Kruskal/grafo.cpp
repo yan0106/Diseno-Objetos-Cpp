@@ -47,7 +47,7 @@ public:
 	
 	// Nuevos métodos:
 	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
-	void inicial(const char&, const char&); // inicializa a las estructuras de conjunto Combina-Encuentra
+	void inicial(const char&, const char&); // inicializa a las estructuras del conjunto Combina-Encuentra
 	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
 	char encuentra(const char&); // encuentra los vértices dentro del conjunto Combina-Encuentra
 	void kruskal(); // algoritmo generador del árbol recubridor minimal
