@@ -37,7 +37,7 @@ ostream& operator <<(ostream& os, grafo G){
 
 	return os;
 }
-
+/*
 int main(){
 	grafo G;
 
@@ -55,4 +55,4 @@ int main(){
 
 	cout << G;
 	return 0;
-}
+}*/
