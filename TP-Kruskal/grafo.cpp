@@ -21,6 +21,10 @@ class grafo{
 	
 	vector<char> V;
 	vector<arista> E;
+	conjunto_CE CE; // estructura para evitar ciclos;
+	arbol grafo_ordenado; // cola de prioridad con los pesos de las aristas;
+	vector<arista> arbol_minimo; // donde guardo las aristas (de menor costo) del resultado final
+
 public:
 	grafo(){}
 	~grafo(){}
