@@ -6,12 +6,14 @@
 using namespace std;
 
 // Estructura Arista
-typedef pair<pair<char, char>, int> arista; // v1, v2 y costo entre ellos
+typedef pair<pair<char, char>, int> arista; // (v1, v2 y costo entre ellos)
 
 // Estructura Combina-Encuentra
 typedef struct combina_encuentra {
-	map <char, pair<char, char>> nombres; // vértice y vértice sig.
-	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento
+	// clave: vértice actual | valor: par de (v anterior, v sig.)
+	map <char, pair<char, char>> nombres;
+	// clave: nombre del grupo | valor: par de (cant. de miembros, 1er. elem.)
+	map <char, pair<int, char>> encabezados;
 }conjunto_CE;
 
 // Clase MenorValor
@@ -47,7 +49,7 @@ public:
 	
 	// Nuevos métodos:
 	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
-	void inicial(const char&, const char&); // inicializa a las estructuras del conjunto Combina-Encuentra
+	void inicial(const char& vertice, const char& nombre_grupo); // inicializa a las estructuras del conjunto Combina-Encuentra
 	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
 	char encuentra(const char&); // encuentra los vértices dentro del conjunto Combina-Encuentra
 	void kruskal(); // algoritmo generador del árbol recubridor minimal
