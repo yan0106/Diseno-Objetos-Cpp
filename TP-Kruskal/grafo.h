@@ -44,18 +44,20 @@ public:
 	grafo(){} // constructor
 	~grafo(){} // destructor
 
+	// Gestión del grafo
 	void insertar_vertice(const char&); // guarda los vértices en el conjunto V
 	void insertar_arista(const char&, const char&, const int&); // guarda las aristas en el conjunto E
-	
-	// Nuevos métodos:
 	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
+
+	// Lógica Combina-Encuentra
 	void inicial(const char& vertice, const char& nombre_grupo); // inicializa a las estructuras del conjunto Combina-Encuentra
 	char encuentra(const char& vertice); // encuentra los vértices dentro del conjunto Combina-Encuentra
 	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
+	
+	// Kruskal
 	void inserta(); // guarda al conjunto E dentro de la cola de prioridad teniendo en cuenta los costos
 	void kruskal(); // algoritmo generador del árbol recubridor minimal
 	
-
 	friend ostream& operator <<(ostream&, grafo);
 };
 
@@ -75,22 +77,3 @@ ostream& operator <<(ostream& os, grafo G){
 
 	return os;
 }
-/*
-int main(){
-	grafo G;
-
-	G.insertar_vertice('a');
-	G.insertar_vertice('b');
-	G.insertar_vertice('c');
-	G.insertar_vertice('d');
-
-	G.insertar_arista('a', 'b', 52 );
-	G.insertar_arista('a', 'c', 15 );
-	G.insertar_arista('a', 'd', 5 );
-	G.insertar_arista('b', 'c', 40 );
-	G.insertar_arista('a', 'd', 25 );
-	G.insertar_arista('c', 'd', 1 );
-
-	cout << G;
-	return 0;
-}*/

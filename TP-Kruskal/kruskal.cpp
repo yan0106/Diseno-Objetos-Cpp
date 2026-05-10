@@ -2,7 +2,7 @@
 #include "grafo.h"
 using namespace std;
 
-// Implementación de los nuevos Métodos:
+// Implementación de los métodos:
 
 void grafo::insertar_arista(){ // guarda las aristas en el conjunto E pidiendolas ingresar por teclado
     char v1; // v origen 
@@ -38,8 +38,6 @@ char grafo::encuentra(const char& vertice){ // encuentra los vértices dentro de
     }
 return ' '; // si sale del bucle for y no lo encontró, retorna vacío
 }
-// clave: nombre del grupo | valor: par de (cantidad, 1er. elem.)
-// map <char, pair<int, char>> encabezados;
 
 void grafo::combina(const char& grupoA, const char& grupoB){ // recibe el nombre de los grupos, combina las aristas 
 // que se encuentran formando el árbol    
@@ -82,3 +80,23 @@ void grafo::inserta() {
         grafo_ordenado.push(x);
     }
 }
+
+/*
+int main(){
+	grafo G;
+
+	G.insertar_vertice('a');
+	G.insertar_vertice('b');
+	G.insertar_vertice('c');
+	G.insertar_vertice('d');
+
+	G.insertar_arista('a', 'b', 52 );
+	G.insertar_arista('a', 'c', 15 );
+	G.insertar_arista('a', 'd', 5 );
+	G.insertar_arista('b', 'c', 40 );
+	G.insertar_arista('a', 'd', 25 );
+	G.insertar_arista('c', 'd', 1 );
+
+	cout << G;
+	return 0;
+}*/
