@@ -41,7 +41,8 @@ return ' '; // si sale del bucle for y no lo encontró, retorna vacío
 // clave: nombre del grupo | valor: par de (cantidad, 1er. elem.)
 // map <char, pair<int, char>> encabezados;
 
-void grafo::combina(const char& grupoA, const char& grupoB){ // combina las aristas que se encuentran formando el árbol    
+void grafo::combina(const char& grupoA, const char& grupoB){ // recibe el nombre de los grupos, combina las aristas 
+// que se encuentran formando el árbol    
     
     // variables para conocer qué grupo es más grande y unirlos (al grupo más grande le suma el más chico)
     char g_grande;
