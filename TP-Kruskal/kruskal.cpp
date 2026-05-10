@@ -73,3 +73,11 @@ void grafo::combina(const char& grupoA, const char& grupoB){ // combina las aris
     CE.encabezados[g_chico].first = 0; // cantidad 0
     CE.encabezados[g_chico].second = ' '; // primer v como ' '
 } 
+
+void grafo::inserta() {
+    // recorre cada x dentro del vector de aristas E
+    for (auto const& x : E) {
+        // mete x en la cola de prioridad grafo_ordenado:
+        grafo_ordenado.push(x);
+    }
+}

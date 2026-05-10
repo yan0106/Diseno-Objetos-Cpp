@@ -50,10 +50,11 @@ public:
 	// Nuevos métodos:
 	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
 	void inicial(const char& vertice, const char& nombre_grupo); // inicializa a las estructuras del conjunto Combina-Encuentra
-	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
 	char encuentra(const char& vertice); // encuentra los vértices dentro del conjunto Combina-Encuentra
-	void kruskal(); // algoritmo generador del árbol recubridor minimal
+	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
 	void inserta(); // guarda al conjunto E dentro de la cola de prioridad teniendo en cuenta los costos
+	void kruskal(); // algoritmo generador del árbol recubridor minimal
+	
 
 	friend ostream& operator <<(ostream&, grafo);
 };
