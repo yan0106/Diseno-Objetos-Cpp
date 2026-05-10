@@ -29,18 +29,17 @@ class MenorValor { // se genera una nueva clase para generar un nuevo criterio d
 // Estructura Arbol (cola de prioridad de aristas)
 typedef priority_queue<arista, vector<arista>, MenorValor> arbol;
 
-/*
-Sea un grafo G = (V, E)
-*/
+// Grafo
 class grafo{
 	
+	// Atributos
 	vector<char> V;
 	vector<arista> E;
 	conjunto_CE CE; // estructura para evitar ciclos
 	arbol grafo_ordenado; // cola de prioridad con los pesos de las aristas
 	vector<arista> arbol_minimo; // donde guardo las aristas (de menor costo) del resultado final
 
-public:
+public: // Métodos
 	grafo(){} // constructor
 	~grafo(){} // destructor
 
