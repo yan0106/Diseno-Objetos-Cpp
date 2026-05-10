@@ -1,5 +1,5 @@
 #include <iostream>
-#include "grafo.cpp"
+#include "grafo.h"
 using namespace std;
 
 // Implementación de los nuevos Métodos:
