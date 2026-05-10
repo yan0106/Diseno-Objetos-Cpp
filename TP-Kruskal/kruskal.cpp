@@ -24,8 +24,19 @@ void grafo::inicial(const char& vertice, const char& nombre_grupo){ // inicializ
     CE.encabezados[nombre_grupo] = make_pair(1, vertice); // cada vértice es su propio conjunto de 1 elemento
 }
 
-// Estructura Combina-Encuentra
-typedef struct combina_encuentra {
-	map <char, pair<char, char>> nombres; // vértice y vértice sig.
-	map <char, pair<int, char>> encabezados; // resumen de cada vértice: cuenta los vértices y da el primer elemento
-}conjunto_CE;
+char grafo::encuentra(const char& vertice){ // encuentra los vértices dentro del conjunto Combina-Encuentra
+    // iterar en CE.encabezados[nombre_grupo] 
+    for (auto const& i : CE.encabezados){ // recorre los grupos
+        char nombre_grupo = i.first;
+        char v = i.second.second;
+        while (v != ' ') { // recorre los vértices
+            if (v == vertice){ // si lo encuentra
+                return nombre_grupo;
+            }
+            v = CE.nombres[v].second; // si no lo encuentra, actualiza al siguiente v
+        }
+    }
+return ' '; // si sale del bucle for y no lo encontró, retorna vacío
+}
+// clave: nombre del grupo | valor: par de (cantidad, 1er. elem.)
+// map <char, pair<int, char>> encabezados;

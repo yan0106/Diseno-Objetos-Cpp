@@ -12,7 +12,7 @@ typedef pair<pair<char, char>, int> arista; // (v1, v2 y costo entre ellos)
 typedef struct combina_encuentra {
 	// clave: vértice actual | valor: par de (v anterior, v sig.)
 	map <char, pair<char, char>> nombres;
-	// clave: nombre del grupo | valor: par de (cant. de miembros, 1er. elem.)
+	// clave: nombre del grupo | valor: par de (cantidad, 1er. elem.)
 	map <char, pair<int, char>> encabezados;
 }conjunto_CE;
 
@@ -51,7 +51,7 @@ public:
 	void insertar_arista(); // guada las aristas en el conj. E pidiendolas ingresar por teclado
 	void inicial(const char& vertice, const char& nombre_grupo); // inicializa a las estructuras del conjunto Combina-Encuentra
 	void combina(const char&, const char&); // combina las aristas que se encuentran formando el árbol
-	char encuentra(const char&); // encuentra los vértices dentro del conjunto Combina-Encuentra
+	char encuentra(const char& vertice); // encuentra los vértices dentro del conjunto Combina-Encuentra
 	void kruskal(); // algoritmo generador del árbol recubridor minimal
 	void inserta(); // guarda al conjunto E dentro de la cola de prioridad teniendo en cuenta los costos
 
