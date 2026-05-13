@@ -107,11 +107,15 @@ int main () {
     cout << "--- Metodo encuentra: ---" << endl;
     cout << "El vertice A pertenece al grupo: " << G.encuentra('A') << endl;
     cout << "El vertice B pertenece al grupo: " << G.encuentra('B') << endl;
+    cout << "El vertice C pertenece al grupo: " << G.encuentra('C') << endl;
 
     cout << "--- Luego de combinar los vertices: ---" << endl;
     G.combina('A', 'B');
     cout << "El vertice A ahora pertenece al grupo: " << G.encuentra('A') << endl;
     cout << "El vertice B ahora pertenece al grupo: " << G.encuentra('B') << endl;
+    G.combina('B', 'C');
+    cout << "El vertice C ahora pertenece al grupo: " << G.encuentra('C') << endl;
+    cout << "El vertice A ahora pertenece al grupo: " << G.encuentra('A') << endl;
 
 
 
