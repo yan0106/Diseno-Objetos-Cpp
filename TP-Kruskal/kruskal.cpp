@@ -96,29 +96,24 @@ int main () {
     G.insertar_arista('A', 'D', 2);
     G.insertar_arista('A', 'C', 7);
 
+    cout << G; 
+
     // 2. Lógica Combina-Encuentra (prueba)
+    G.inicial('A', 'A');
+    G.inicial('B', 'B');
+    G.inicial('C', 'C');
+    G.inicial('D', 'D');
+
+    cout << "--- Metodo encuentra: ---" << endl;
+    cout << "El vertice A pertenece al grupo: " << G.encuentra('A') << endl;
+    cout << "El vertice B pertenece al grupo: " << G.encuentra('B') << endl;
+
+    cout << "--- Luego de combinar los vertices: ---" << endl;
+    G.combina('A', 'B');
+    cout << "El vertice A ahora pertenece al grupo: " << G.encuentra('A') << endl;
+    cout << "El vertice B ahora pertenece al grupo: " << G.encuentra('B') << endl;
 
 
 
 return 0;
 }
-
-/*
-int main(){
-	grafo G;
-
-	G.insertar_vertice('a');
-	G.insertar_vertice('b');
-	G.insertar_vertice('c');
-	G.insertar_vertice('d');
-
-	G.insertar_arista('a', 'b', 52 );
-	G.insertar_arista('a', 'c', 15 );
-	G.insertar_arista('a', 'd', 5 );
-	G.insertar_arista('b', 'c', 40 );
-	G.insertar_arista('a', 'd', 25 );
-	G.insertar_arista('c', 'd', 1 );
-
-	cout << G;
-	return 0;
-}*/
