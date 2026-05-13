@@ -81,6 +81,28 @@ void grafo::inserta() {
     }
 }
 
+int main () {
+
+    grafo G;
+
+    // 1. Gestión del Grafo (prueba)
+    G.insertar_vertice('A');
+    G.insertar_vertice('B');
+    G.insertar_vertice('C');
+    G.insertar_vertice('D');
+
+	G.insertar_arista('A', 'B', 10);
+    G.insertar_arista('B', 'C', 5);
+    G.insertar_arista('A', 'D', 2);
+    G.insertar_arista('A', 'C', 7);
+
+    // 2. Lógica Combina-Encuentra (prueba)
+
+
+
+return 0;
+}
+
 /*
 int main(){
 	grafo G;
