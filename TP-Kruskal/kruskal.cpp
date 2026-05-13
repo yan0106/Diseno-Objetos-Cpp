@@ -81,6 +81,46 @@ void grafo::inserta() {
     }
 }
 
+void grafo::kruskal() { // algoritmo generador del árbol recubridor minimal
+    
+    int comp_n = V.size(); // cantidad actual de componentes (vértices)
+    arista a;
+    int costo_total = 0;
+
+    // llama al método inserta para que meta las aristas en la cola de prioridad
+    inserta();
+
+    // inicializa los conjuntos
+    for (auto const& x : V) {
+        inicial (x, x);
+    }
+
+    while (comp_n > 1 && !grafo_ordenado.empty()) // mientras haya vertices para comparar y la cola de prioridad
+    // no esté vacía
+    {
+        a = grafo_ordenado.top(); // saca la primera arista de la cola (menor costo) y la guarda en a
+        grafo_ordenado.pop(); // la elimina de la cola
+
+        char grupoA = encuentra (a.first.first); // recibe el 1er. vértice de la arista a, devuelve el grupo y lo guarda en grupoA
+        char grupoB = encuentra (a.first.second); // recibe el 2do. vértice de la arista a, devuelve el grupo y lo guarda en grupoB
+
+        if (grupoA != grupoB) {
+            arbol_minimo.push_back(a);
+            costo_total = costo_total + a.second;
+            combina(grupoA, grupoB);
+            comp_n = comp_n - 1;
+        }
+    }
+
+    for (auto const& x : arbol_minimo) {
+        cout << "Las aristas elegidas son: " << endl;
+        cout << x.first.first << " - " << x.first.second << " | Costo: " << x.second << endl;
+    }
+    
+    cout << "El costo total es: " << costo_total << endl;
+}
+
+
 int main () {
 
     grafo G;
@@ -98,7 +138,7 @@ int main () {
 
     cout << G; 
 
-    // 2. Lógica Combina-Encuentra (prueba)
+/*  // 2. Lógica Combina-Encuentra (prueba)
     G.inicial('A', 'A');
     G.inicial('B', 'B');
     G.inicial('C', 'C');
@@ -117,7 +157,9 @@ int main () {
     cout << "El vertice C ahora pertenece al grupo: " << G.encuentra('C') << endl;
     cout << "El vertice A ahora pertenece al grupo: " << G.encuentra('A') << endl;
 
+*/
 
+    G.kruskal();
 
 return 0;
 }
