@@ -8,9 +8,9 @@ void grafo::insertar_arista(){ // guarda las aristas en el conjunto E pidiendola
     char v1; // v origen 
     char v2; // v destino
     int costo;
-    cout << "Ingrese vértice origen: "; 
+    cout << "Ingrese vertice origen: "; 
     cin >> v1;
-    cout << "Ingrese vértice destino: "; 
+    cout << "Ingrese vertice destino: "; 
     cin >> v2;
     cout << "Ingrese costo: "; 
     cin >> costo;
@@ -81,7 +81,7 @@ void grafo::inserta() {
     }
 }
 
-void grafo::kruskal() { // algoritmo generador del árbol recubridor minimal
+void grafo::kruskal() {
     
     int comp_n = V.size(); // cantidad actual de componentes (vértices)
     arista a;
@@ -112,8 +112,8 @@ void grafo::kruskal() { // algoritmo generador del árbol recubridor minimal
         }
     }
 
+    cout << "Las aristas elegidas son: " << endl;
     for (auto const& x : arbol_minimo) {
-        cout << "Las aristas elegidas son: " << endl;
         cout << x.first.first << " - " << x.first.second << " | Costo: " << x.second << endl;
     }
     
@@ -159,6 +159,7 @@ int main () {
 
 */
 
+    // 3. Kruskal: 
     G.kruskal();
 
 return 0;
