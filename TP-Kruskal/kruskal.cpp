@@ -125,7 +125,7 @@ int main () {
 
     grafo G;
 
-    // 1. Gestión del Grafo (prueba)
+/* // 1. Gestión del Grafo (prueba)
     G.insertar_vertice('A');
     G.insertar_vertice('B');
     G.insertar_vertice('C');
@@ -135,8 +135,26 @@ int main () {
     G.insertar_arista('B', 'C', 5);
     G.insertar_arista('A', 'D', 2);
     G.insertar_arista('A', 'C', 7);
+*/
+    G.insertar_vertice('1');
+    G.insertar_vertice('2');
+    G.insertar_vertice('3');
+    G.insertar_vertice('4');
+    G.insertar_vertice('5');
+    G.insertar_vertice('6');
 
-    cout << G; 
+    G.insertar_arista('1', '2', 6);
+    G.insertar_arista('1', '3', 1);
+    G.insertar_arista('1', '4', 5);
+    G.insertar_arista('2', '3', 5);
+    G.insertar_arista('2', '5', 3);
+    G.insertar_arista('3', '5', 6);
+    G.insertar_arista('3', '6', 4);
+    G.insertar_arista('4', '3', 5);
+    G.insertar_arista('4', '6', 2);
+    G.insertar_arista('5', '6', 6);
+
+    cout << G;
 
 /*  // 2. Lógica Combina-Encuentra (prueba)
     G.inicial('A', 'A');
