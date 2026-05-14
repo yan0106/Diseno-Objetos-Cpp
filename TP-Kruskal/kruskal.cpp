@@ -152,7 +152,7 @@ int main () {
     G.insertar_arista('3', '6', 4);
     G.insertar_arista('4', '3', 5);
     G.insertar_arista('4', '6', 2);
-    G.insertar_arista('5', '6', 6);
+    G.insertar_arista('5', '6', 7);
 
     cout << G;
 
